@@ -6,8 +6,8 @@ import pandas as pd
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read(
-  worksheet="Sheet1"
-  #ttl="10m"
+  worksheet="Sheet1",
+  ttl="10"
 )
 
 # Remove columns where all values are NA.
@@ -17,7 +17,8 @@ df = df.dropna(axis=1, how='all')
 df = df.dropna(axis=0, how='all')
 
 # Header
-st.header("Table 1")
+st.write("Russell 1000 Growth vs. Russell 1000 Value")
+st.write("\(Total Returns, 1979 - 2023\)")
 
 pd.options.display.float_format = '{:.0f}'.format
 
@@ -26,12 +27,12 @@ st.dataframe(df)
 
 df2 = conn.read(
   worksheet="Sheet2",
-  ttl="10m"
+  ttl="10"
 )
 
 df2 = df2.dropna(axis=1, how='all')
 df2 = df2.dropna(axis=0, how='all')
 
-st.header("Table 2")
+st.write("S&P 500, US 10-Year Treasury, and 60/40 Portfolio")
 #st.table(df2)
 st.dataframe(df2)
