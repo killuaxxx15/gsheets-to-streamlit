@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
 # Create a connection object.
-conn = st.connection("gsheets", type=GSheetsConnection)
+#conn = st.connection("gsheets", type=GSheetsConnection)
 
 spreadsheet_id = "109_ONvn6OUlDksO7B6-Wrq6klmDkbIUH5AscqLJmhX8"  # Replace with your actual spreadsheet ID
 connection_name = "my_gsheet_connection"     # You can choose any name you like
