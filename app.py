@@ -23,6 +23,9 @@ st.write("\(Total Returns, 1979 - 2023\)")
 # Assuming 'column_name' is the name of your column
 df['Year'] = df['Year'].apply(lambda x: f'{x:.0f}')
 
+df1 = df['Year']
+st.write(df1)
+
 # Display results in a table format.
 st.dataframe(df)
 
