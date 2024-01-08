@@ -23,9 +23,6 @@ st.write("\(Total Returns, 1979 - 2023\)")
 # Assuming 'column_name' is the name of your column
 df['Year'] = df['Year'].apply(lambda x: f'{x:.0f}')
 
-df1 = df['Year']
-st.write(df1)
-
 # Display results in a table format.
 st.dataframe(df)
 
@@ -38,5 +35,5 @@ df2 = df2.dropna(axis=1, how='all')
 df2 = df2.dropna(axis=0, how='all')
 
 st.write("S&P 500, US 10-Year Treasury, and 60/40 Portfolio")
-#st.table(df2)
+df2['Year'] = df2['Year'].apply(lambda x: f'{x:.0f}')
 st.dataframe(df2)
