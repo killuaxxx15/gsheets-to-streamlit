@@ -20,7 +20,7 @@ df = df.dropna(axis=0, how='all')
 st.header("Table 1")
 
 # Display results in a table format.
-st.table(df)
+st.dataframe(df)
 
 df2 = conn.read(
   worksheet="Sheet2",
