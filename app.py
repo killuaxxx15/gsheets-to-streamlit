@@ -6,8 +6,8 @@ import pandas as pd
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read(
-  worksheet="Sheet1",
-  ttl="10m"
+  worksheet="Sheet1"
+  #ttl="10m"
 )
 
 # Remove columns where all values are NA.
