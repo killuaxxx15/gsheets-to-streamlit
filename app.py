@@ -20,7 +20,8 @@ df = df.dropna(axis=0, how='all')
 st.write("Russell 1000 Growth vs. Russell 1000 Value")
 st.write("\(Total Returns, 1979 - 2023\)")
 
-pd.options.display.float_format = '{:.0f}'.format
+# Assuming 'column_name' is the name of your column
+df['Year'] = df['Year'].apply(lambda x: f'{x:.0f}')
 
 # Display results in a table format.
 st.dataframe(df)
