@@ -10,6 +10,7 @@ conn = GSheetsConnection(spreadsheet_id=spreadsheet_id, connection_name=connecti
 
 # Read the data from the Google Sheet.
 df = conn.read(
+  spreadsheet_id=spreadsheet_id,
   worksheet="Sheet1",
   ttl="10m"
 )
