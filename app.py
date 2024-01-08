@@ -3,8 +3,7 @@ from streamlit_gsheets import GSheetsConnection
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
-st.write(st.secrets['connections'])
-"""
+
 spreadsheet_id = "109_ONvn6OUlDksO7B6-Wrq6klmDkbIUH5AscqLJmhX8"  # Replace with your actual spreadsheet ID
 connection_name = "my_gsheet_connection"     # You can choose any name you like
 conn = GSheetsConnection(spreadsheet_id=spreadsheet_id, connection_name=connection_name)
@@ -42,4 +41,3 @@ st.header("Table 1")
 
 # Display results in a table format.
 st.table(df)
-"""
