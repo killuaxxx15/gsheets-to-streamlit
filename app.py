@@ -5,7 +5,8 @@ from streamlit_gsheets import GSheetsConnection
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 spreadsheet_id = "109_ONvn6OUlDksO7B6-Wrq6klmDkbIUH5AscqLJmhX8"  # Replace with your actual spreadsheet ID
-conn = GSheetsConnection(spreadsheet_id=spreadsheet_id)
+connection_name = "my_gsheet_connection"     # You can choose any name you like
+conn = GSheetsConnection(spreadsheet_id=spreadsheet_id, connection_name=connection_name)
 
 # Read the data from the Google Sheet.
 df = conn.read(
