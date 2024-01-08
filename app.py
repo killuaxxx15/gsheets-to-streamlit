@@ -19,6 +19,8 @@ df = df.dropna(axis=0, how='all')
 # Header
 st.header("Table 1")
 
+pd.options.display.float_format = '{:.0f}'.format
+
 # Display results in a table format.
 st.dataframe(df)
 
