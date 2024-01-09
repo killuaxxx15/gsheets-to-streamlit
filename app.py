@@ -7,32 +7,10 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read(
   worksheet="Sheet1",
-  ttl="10"
+  ttl="5"
 )
 
-# Remove columns where all values are NA.
-df = df.dropna(axis=1, how='all')
-# Remove rows where all values are NA.
-df = df.dropna(axis=0, how='all')
+st.set_page_config(page_title='Sharks Data Collection')
+st.markdown(' # Sharks Data Collection ')
 
-# Header
-st.write("Russell 1000 Growth vs. Russell 1000 Value")
-st.write("\(Total Returns, 1979 - 2023\)")
-
-# Assuming 'column_name' is the name of your column
-df['Year'] = df['Year'].apply(lambda x: f'{x:.0f}')
-
-# Display results in a table format.
 st.dataframe(df)
-
-df2 = conn.read(
-  worksheet="Sheet2",
-  ttl="10"
-)
-
-df2 = df2.dropna(axis=1, how='all')
-df2 = df2.dropna(axis=0, how='all')
-
-st.write("S&P 500, US 10-Year Treasury, and 60/40 Portfolio")
-df2['Year'] = df2['Year'].apply(lambda x: f'{x:.0f}')
-st.dataframe(df2)
