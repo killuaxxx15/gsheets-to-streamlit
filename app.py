@@ -21,4 +21,16 @@ df.dropna(axis=1, how='all', inplace=True)  # Uncomment to remove columns where 
 
 # Display content
 st.markdown(' # Sharks Data Collection ')
-st.dataframe(df)
+
+st.sidebar.header("Please filter here:")
+shark_name = st.sidebar.multiselect(
+    "Select the Shark Name:",
+    options = df['Shark_Name'].unique(),
+    default = df['Shark_Name'].unique()
+)
+
+df_selection = df.query(
+    "Shark_Name == @shark_name"
+)
+
+st.dataframe(df_selection)
