@@ -12,7 +12,6 @@ df = conn.read(
 
 # Remove columns where all values are NA.
 df = df.dropna(axis=1, how='all')
-
 # Remove rows where all values are NA.
 df = df.dropna(axis=0, how='all')
 
