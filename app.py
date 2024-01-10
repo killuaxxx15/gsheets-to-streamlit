@@ -55,7 +55,7 @@ st.dataframe(df2)
 
 # Create a function to apply conditional formatting
 def color_cells(val):
-    if val < 0:
+    if val < 1:
         return 'background-color: red'
     elif val == 1:
         return 'background-color: green'
