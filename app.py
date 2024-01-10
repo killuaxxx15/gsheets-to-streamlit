@@ -59,7 +59,7 @@ def colored_circle(value):
     return f'<span style="height: 15px; width: 15px; background-color: {color}; border-radius: 50%; display: inline-block;"></span>'
 
 # Apply the colored circle function to your specific column
-df2['Colored_Circle'] = df2['Column_C'].apply(colored_circle)
+df2['Column_C'] = df2['Column_C'].apply(colored_circle)
 
 # Display the DataFrame
 st.write(df2.to_html(escape=False), unsafe_allow_html=True)
