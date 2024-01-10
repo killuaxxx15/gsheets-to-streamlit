@@ -54,17 +54,17 @@ st.markdown(" # Original ")
 st.dataframe(df2)
 
 # Create a function to apply conditional formatting
-def format_column_c(row):
-    if row['Column B'] == 0:
-        return 'color: red'
-    elif row['Column B'] >= 1:
-        return 'color: green'
+def color_cells(val):
+    if val < 0:
+        return 'background-color: red'
+    elif val == 1:
+        return 'background-color: green'
     else:
         return ''
 
-# Apply the conditional formatting to "Column B"
-formatted_df2 = df2.style.applymap(format_column_c, subset=['Column C'])
+# Apply the conditional formatting to the 3rd column (index 2)
+styled_df2 = df2.style.applymap(color_cells, subset=pd.IndexSlice[:, [2]])
 
-# Display the formatted DataFrame in Streamlit
-st.markdown(" # Formatted ")
-st.dataframe(formatted_df2, height=500)
+# Display the styled DataFrame in Streamlit
+st.markdown(" # Colored ")
+st.dataframe(styled_df2, height=500)
