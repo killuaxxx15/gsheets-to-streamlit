@@ -50,4 +50,21 @@ df2 = conn.read(
 df2.dropna(how='all', inplace=True)  # Removes rows where all cells are empty
 df2.dropna(axis=1, how='all', inplace=True)  # Uncomment to remove columns where all cells are empty
 
+st.markdown(" # Original ")
 st.dataframe(df2)
+
+# Create a function to apply conditional formatting
+def format_column_c(row):
+    if row['Column B'] == 0:
+        return 'color: red'
+    elif row['Column B'] >= 1:
+        return 'color: green'
+    else:
+        return ''
+
+# Apply the conditional formatting to "Column B"
+formatted_df2 = df2.style.applymap(format_column_c, subset=['Column C'])
+
+# Display the formatted DataFrame in Streamlit
+st.markdown(" # Formatted ")
+st.dataframe(formatted_df2, height=500)
