@@ -53,18 +53,13 @@ df2.dropna(axis=1, how='all', inplace=True)  # Uncomment to remove columns where
 st.markdown(" # Original ")
 st.dataframe(df2)
 
-# Function to generate colored circles based on Column B values
-def color_circles(value):
-    if value < 1:
-        return f'<div style="width: 20px; height: 20px; border-radius: 50%; background-color: red;"></div>'
-    elif value == 1:
-        return f'<div style="width: 20px; height: 20px; border-radius: 50%; background-color: green;"></div>'
-    else:
-        return ''
+# Function to create a colored circle based on value
+def colored_circle(value):
+    color = "red" if value < 1 else "green"
+    return f'<span style="height: 15px; width: 15px; background-color: {color}; border-radius: 50%; display: inline-block;"></span>'
 
-# Apply the function to Column B to create colored circles in Column C
-df2['Column_C'] = df2['Column_B'].apply(color_circles)
+# Apply the colored circle function to your specific column
+df2['Colored Circle'] = df2['ColumnC'].apply(colored_circle)
 
-# Display the DataFrame with colored circles in Streamlit
-st.markdown(" # Colored ")
-st.write(df2.drop(columns='Column_B'), unsafe_allow_html=True)
+# Display the DataFrame
+st.write(df2.to_html(escape=False), unsafe_allow_html=True)
