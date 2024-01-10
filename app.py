@@ -63,7 +63,7 @@ def color_cells(val):
         return ''
 
 # Apply the conditional formatting to the 3rd column (index 2)
-styled_df2 = df2.style.applymap(color_cells, subset=pd.IndexSlice[:, [2]])
+styled_df2 = df2.style.applymap(color_cells, subset='Column_C')
 
 # Display the styled DataFrame in Streamlit
 st.markdown(" # Colored ")
