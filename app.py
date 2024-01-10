@@ -35,3 +35,19 @@ df_selection = df.query(
 )
 
 st.dataframe(df_selection)
+
+
+
+### SHEET 2
+
+# Read data from google sheets
+df2 = conn.read(
+  worksheet="Sheet2",
+  ttl="5"
+)
+
+# Preprocess DataFrame: Remove empty rows/columns or replace empty cells
+df2.dropna(how='all', inplace=True)  # Removes rows where all cells are empty
+df2.dropna(axis=1, how='all', inplace=True)  # Uncomment to remove columns where all cells are empty
+
+st.dataframe(df2)
