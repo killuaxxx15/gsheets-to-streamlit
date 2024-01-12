@@ -16,6 +16,9 @@ STOCKS = conn.read(
 #tickers = STOCKS['Ticker']
 #st.dataframe(STOCKS)
 
+STOCKS['Ticker_Index'] = STOCKS['Ticker']
+STOCKS.set_index('Ticker_Index',inplace = True)
+
 stock_dma  = STOCKS.loc[(STOCKS['50DMAModel'] == 'INVESTED') & (STOCKS['100DMAModel'] == 'INVESTED') & (STOCKS['200DMAModel'] == 'INVESTED')]
 stock_tr_1 = STOCKS.loc[(STOCKS['200DMAModel'] == 'INVESTED') & (STOCKS['50DMAModel'] == 'CASH')]
 stock_tr_2 = STOCKS.loc[(STOCKS['200DMAModel'] == 'CASH') & (STOCKS['50DMAModel'] == 'INVESTED') & (STOCKS['Fallin1Wmore10']<= 10)]
