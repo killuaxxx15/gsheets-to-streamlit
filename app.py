@@ -37,7 +37,7 @@ with st.sidebar:
 
   if (category == []) and (stock == []):
 
-    d_stock = STOCKS.loc[STOCKS['Ticker'] == 'SPY']
+    d_stock = STOCKS.loc[STOCKS['Ticker'] == '^NSEI']
 
   elif (category == []) and (stock != []):
 
