@@ -11,6 +11,15 @@ ETFs = conn.read(
   ttl="5",
 )
 
+# Convert to a pandas DataFrame
+ETFs = pd.DataFrame(ETFs)
+
+# Drop rows where all elements are missing
+ETFs = ETFs.dropna(how='all')
+
+# Drop columns where all elements are missing
+ETFs = ETFs.dropna(axis=1, how='all')
+
 # Convert the data to a DataFrame if necessary
 #STOCKS = pd.DataFrame(STOCKS)
 #tickers = STOCKS['Ticker']
